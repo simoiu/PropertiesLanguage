@@ -4,7 +4,9 @@ using Microsoft.VisualStudio.Text.Classification;
 using Microsoft.VisualStudio.Utilities;
 
 namespace PropertiesLanguage.Syntax.Classification {
+
     #region Format definition
+
     /// <summary>
     /// Defines the editor format for the PropertiesKey classification type.
     /// </summary>
@@ -15,7 +17,8 @@ namespace PropertiesLanguage.Syntax.Classification {
     internal class PropertiesKey : ClassificationFormatDefinition {
         public PropertiesKey() {
             DisplayName = "Properties Key";
-            ForegroundColor = Color.FromRgb(86, 156, 214);
+            var color = PropertiesLanguageOptionsPackage.Instance.PropertiesKeyColorGet;
+            ForegroundColor = Color.FromArgb(color.A, color.R, color.G, color.B);
         }
     }
 
@@ -29,7 +32,8 @@ namespace PropertiesLanguage.Syntax.Classification {
     internal class PropertiesValue : ClassificationFormatDefinition {
         public PropertiesValue() {
             DisplayName = "Properties Value";
-            ForegroundColor = Color.FromRgb(214, 157, 113);
+            var color = PropertiesLanguageOptionsPackage.Instance.PropertiesValueColorGet;
+            ForegroundColor = Color.FromArgb(color.A, color.R, color.G, color.B);
         }
     }
 
@@ -43,7 +47,8 @@ namespace PropertiesLanguage.Syntax.Classification {
     internal class PropertiesComment : ClassificationFormatDefinition {
         public PropertiesComment() {
             DisplayName = "Properties Comment";
-            ForegroundColor = Colors.Gray;
+            var color = PropertiesLanguageOptionsPackage.Instance.PropertiesCommentColorGet;
+            ForegroundColor = Color.FromArgb(color.A, color.R, color.G, color.B);
         }
     }
 
@@ -54,13 +59,13 @@ namespace PropertiesLanguage.Syntax.Classification {
     [ClassificationType(ClassificationTypeNames = "PropertiesSeparatorTypeDefinition")]
     [Name("PropertiesSeparatorFormat")]
     [Order(Before = Priority.Default)]
-    internal class PropertiesSeparator : ClassificationFormatDefinition
-    {
-        public PropertiesSeparator()
-        {
+    internal class PropertiesSeparator : ClassificationFormatDefinition {
+        public PropertiesSeparator() {
             DisplayName = "Properties Separator";
-            ForegroundColor = Colors.LightGray;
+            var color = PropertiesLanguageOptionsPackage.Instance.PropertiesSeparatorColorGet;
+            ForegroundColor = Color.FromArgb(color.A, color.R, color.G, color.B);
         }
     }
+
     #endregion //Format definition
 }
